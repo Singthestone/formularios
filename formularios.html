@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/index.css">
+    <title>Formularios</title>
+</head>
+
+<body>
+
+    <!------- INPUTS ------->
+    <label for="nombrePropio">Nombre</label>
+    <input name="nombrePropio" type="text" size="20" maxlength="30" placeholder="nombre completo" autofocus pattern="[A-Z] [a-z] [30]" required>
+
+    <!-- RADIO -->
+    <!-- Para realizar un formulario de sólo una respuesta, con el "checked" se consigue que no se puedan rellenar ambos campos. -->
+    <input type="radio" name="mayorEdad" value="mayor" checked> Mayor Edad
+    <input type="radio" name="mayorEdad" value="mayor"> Menor Edad
+
+    <!-- CHECKBOX -->
+    <!-- Para realizar pestañas seleccionables y acumulativas. Multiples selecciones. -->
+    <input type="checkbox" name="v1" value="bici">Bici
+    <input type="checkbox" name="v2" value="coche">Coche
+
+    <!-- SELECT -->
+    <!-- Para realizar una pestaña desplegable de selección de opciones -->
+    <select name="coches">
+    <option value="toyota">Toyota</option>
+    <option value="seat">SEAT</option>
+    <option value="peugeot">Peugeot</option>
+    <option value="ferrari">Ferrari</option>
+ </select>
+
+    <!-- DATALIST -->
+    <!-- Se trata de una etiqueta un poco antigua y tiene algunos inconvenientes: 1- al seleccionar una de las opciones, se queda fija la opción sin permitir que se cambie, 2- la primera visualización que se ve en el navegador es de un bloque en blanco, dando una mala imagen para el usuario al sorprender con contenido vacío. -->
+    <input list="navegadores">
+    <datalist id="navegadores">
+    <option value="Internet Explorer">
+    <option value="Google Chrome">
+    <option value="Safari">
+</datalist>
+
+    <!-- TEXTAREA -->
+    <!-- Para crear un cuadro de texto para rellenarse con X rows. A pesar de ello, los navegadores ya habilitan la opción para regular el tamaño de dicho cuadro de texto. -->
+    <textarea name="" cols="30" rows="10" placeholder="Escribe">
+    Texto del intro...
+    </textarea>
+
+    <!-- INPUTS VARIOS -->
+    <!-- "date" genera un calendario para seleccionar una fecha en concreto. Con las etiquetas min/max podemos crear la fecha mínima que se puede seleccionar ya la máxima. -->
+    <input type="date" name="fechaNacimiento" min="01/01/1930" max="">
+    <!-- "number" crea un recuadro con flechas para seleccionar un número. Con la etiqueta de min/max se pueden seleccionar las cifras máximas y mínimas que se pueden introducir en el formulario y con "step" el salto entre cifras que permitimos que se produzca. -->
+    <input type="number" name="" min="1" max="10" step="">
+    <input type="file" name="" multiple="">
+
+    <!-- PATTERN -->
+    <!-- Para crear un bloque para rellenar con un email válido. -->
+    <input type="text" pattern="[A-Z,a-z][10]">
+    <input type="email" pattern="/^[a-z._]">
+
+
+
+    <!-- Para crear un formulario de completar datos, cado uno de ellos se especifica en los "placeholder". -->
+    <form action="formulario.php" method="post" autocomplete="off">
+        <input type="text" name="nombre" autofocus placeholder="nombre completo" required>
+        <input type="text" name="direccion" placeholder="calle y número">
+        <input type="text" name="localidad" placeholder="localidad" required>
+        <input type="email" name="email" placeholder="rellena tu correo" required>
+
+        <!-- Para crear unos formularios para seleccionar un tipo de pago que se quiere realizar. -->
+        <input type="radio" name="pago" value="transferencia" checked>Transferencia Bancaria
+        <input type="radio" name="pago" value="contrareembolso">Contrareembolso
+
+        <!-- Para crear el botón de enviar el formulario a la base de datos de la plataforma. -->
+        <button type="submit">Enviar</button>
+        <!-- Para crear un botón por si queremos borrar o corregir los daros del formulario. -->
+        <button type="reset">Borrar</button>
+
+    </form>
+</body>
+
+</html>
